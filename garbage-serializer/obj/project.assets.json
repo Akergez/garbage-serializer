@@ -1,37 +1,43 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net6.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net6.0": []
   },
   "packageFolders": {
-    "/home/solomein/.nuget/packages/": {}
+    "C:\\Users\\telya\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/solomein/RiderProjects/garbage-serializer/garbage-serializer/garbage-serializer.csproj",
+      "projectUniqueName": "C:\\Serializator\\garbage-serializer\\garbage-serializer.csproj",
       "projectName": "garbage-serializer",
-      "projectPath": "/home/solomein/RiderProjects/garbage-serializer/garbage-serializer/garbage-serializer.csproj",
-      "packagesPath": "/home/solomein/.nuget/packages/",
-      "outputPath": "/home/solomein/RiderProjects/garbage-serializer/garbage-serializer/obj/",
+      "projectPath": "C:\\Serializator\\garbage-serializer\\garbage-serializer.csproj",
+      "packagesPath": "C:\\Users\\telya\\.nuget\\packages\\",
+      "outputPath": "C:\\Serializator\\garbage-serializer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/solomein/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\telya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net9.0"
+        "net6.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget-api.kontur.host/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -39,25 +45,18 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
-      "net9.0": {
-        "targetAlias": "net9.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "imports": [
           "net461",
           "net462",
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -66,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/solomein/.dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

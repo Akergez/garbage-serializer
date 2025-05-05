@@ -1,0 +1,15 @@
+C:\Serializator\garbage-serializer\bin\Debug\net6.0\garbage-serializer.exe
+C:\Serializator\garbage-serializer\bin\Debug\net6.0\garbage-serializer.deps.json
+C:\Serializator\garbage-serializer\bin\Debug\net6.0\garbage-serializer.runtimeconfig.json
+C:\Serializator\garbage-serializer\bin\Debug\net6.0\garbage-serializer.dll
+C:\Serializator\garbage-serializer\bin\Debug\net6.0\ref\garbage-serializer.dll
+C:\Serializator\garbage-serializer\bin\Debug\net6.0\garbage-serializer.pdb
+C:\Serializator\garbage-serializer\obj\Debug\net6.0\garbage-serializer.csproj.AssemblyReference.cache
+C:\Serializator\garbage-serializer\obj\Debug\net6.0\garbage-serializer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Serializator\garbage-serializer\obj\Debug\net6.0\garbage-serializer.AssemblyInfoInputs.cache
+C:\Serializator\garbage-serializer\obj\Debug\net6.0\garbage-serializer.AssemblyInfo.cs
+C:\Serializator\garbage-serializer\obj\Debug\net6.0\garbage-serializer.csproj.CoreCompileInputs.cache
+C:\Serializator\garbage-serializer\obj\Debug\net6.0\garbage-serializer.dll
+C:\Serializator\garbage-serializer\obj\Debug\net6.0\ref\garbage-serializer.dll
+C:\Serializator\garbage-serializer\obj\Debug\net6.0\garbage-serializer.pdb
+C:\Serializator\garbage-serializer\obj\Debug\net6.0\garbage-serializer.genruntimeconfig.cache

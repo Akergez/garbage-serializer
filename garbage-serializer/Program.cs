@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using garbage_serializer;
+
+var p = new Point(1, 2);
+Console.WriteLine(Serializer.Serialize(p));
