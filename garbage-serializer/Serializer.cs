@@ -1,8 +1,19 @@
 #nullable enable
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace garbage_serializer;
+
+public class RenamePropertyAttribute : Attribute
+{
+    public string Name { get; set; }
+
+    public RenamePropertyAttribute(string name)
+    {
+        Name = name;
+    }
+}
 
 public static class Serializer
 {
@@ -31,7 +42,8 @@ public static class Serializer
         {
             if (prop.Name == "IsEmpty") continue;
             var val = prop.GetValue(obj, null);
-            sb.Append($"\"{prop.Name}\": ");
+            var name = prop.GetCustomAttribute<RenamePropertyAttribute>()?.Name ?? prop.Name;
+            sb.Append($"\"{name}\": ");
             var propType = prop.PropertyType;
             if (propType.IsPrimitive || propType.IsEnum)
             {
@@ -85,6 +97,7 @@ internal class Point
     public int X { get; set; }
     public int Y { get; set; }
 
+    [RenameProperty("name")]
     public string Name { get; set; }="Point";
     public Point? Next { get; set; }
 
