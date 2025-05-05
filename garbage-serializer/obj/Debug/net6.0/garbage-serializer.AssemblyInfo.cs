@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("garbage-serializer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b0a222917799546f27c217704ea9bed086b3616")]
 [assembly: System.Reflection.AssemblyProductAttribute("garbage-serializer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("garbage-serializer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
