@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\qwerty\\Documents\\GitHub\\garbage-serializer\\garbage-serializer\\garbage-serializer.csproj": {}
+    "D:\\Git\\garbage-serializer\\garbage-serializer\\garbage-serializer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\qwerty\\Documents\\GitHub\\garbage-serializer\\garbage-serializer\\garbage-serializer.csproj": {
+    "D:\\Git\\garbage-serializer\\garbage-serializer\\garbage-serializer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\qwerty\\Documents\\GitHub\\garbage-serializer\\garbage-serializer\\garbage-serializer.csproj",
+        "projectUniqueName": "D:\\Git\\garbage-serializer\\garbage-serializer\\garbage-serializer.csproj",
         "projectName": "garbage-serializer",
-        "projectPath": "C:\\Users\\qwerty\\Documents\\GitHub\\garbage-serializer\\garbage-serializer\\garbage-serializer.csproj",
-        "packagesPath": "C:\\Users\\qwerty\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\qwerty\\Documents\\GitHub\\garbage-serializer\\garbage-serializer\\obj\\",
+        "projectPath": "D:\\Git\\garbage-serializer\\garbage-serializer\\garbage-serializer.csproj",
+        "packagesPath": "C:\\Users\\gavri\\.nuget\\packages\\",
+        "outputPath": "D:\\Git\\garbage-serializer\\garbage-serializer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\qwerty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gavri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net6.0": {
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
