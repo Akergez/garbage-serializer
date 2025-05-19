@@ -1,7 +1,9 @@
 #nullable enable
+using System.Diagnostics.Tracing;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Serialization.Metadata;
 
 namespace garbage_serializer;
 
@@ -93,11 +95,13 @@ public static class Serializer
                 result.Add(splitted.ToString());
                 splitted.Clear();
             }
+
             if (json[i] == '}')
                 nasting--;
         }
+        result.Add(splitted.ToString());
 
-        return result.ToArray();
+        return result.Where(s => !string.IsNullOrEmpty(s)).ToArray();
     }
 
     private static JsonArray GetArray(string json)
@@ -135,18 +139,71 @@ public static class Serializer
             {
                 '{' => GetKey(e[(e.IndexOf(':') + 2)..]),
                 '[' => GetArray(e[(e.IndexOf(':') + 2)..]),
-                '"' => new JsonPrimitiveType { children = e[(e.IndexOf(':') + 2)..][1..^1] },
-                _ => new JsonPrimitiveType { children = e[(e.IndexOf(':') + 2)..] }
+                '"' => e[(e.IndexOf(':') + 2)..][1..^1] == "null" ? new JsonNull() :
+                    new JsonPrimitiveType { children = e[(e.IndexOf(':') + 2)..][1..^1] },
+                _ => e[(e.IndexOf(':') + 2)..] == "null" ? new JsonNull() :
+                    new JsonPrimitiveType { children = e[(e.IndexOf(':') + 2)..] }
             };
 
-            JsonNode[key] = value;
+            JsonNode[key[1..^1]] = value;
         }
 
         return new JsonObject { children = JsonNode };
     }
 
-    private static void Deserialize(string json, Type type)
+    public static T? Deserialize<T>(string json)
     {
+        return (T)Deserialize(GetKey(json), typeof(T));
+    }
+
+    private static object? Deserialize(JsonNode json, Type type)
+    {
+        if (json is JsonArray jsn && type.IsArray)
+        {
+            var v = type.GetElementType();
+            var result = new List<object>();
+            foreach (var obj in jsn.children)
+            {
+                result.Add(Deserialize(obj, v));
+            }
+            var arr = Array.CreateInstance(v, result.Count);
+            for(var i = 0; i < result.Count; i++)
+                arr.SetValue(result[i], i);
+            return arr;
+        }
+
+        if (json is JsonPrimitiveType jsonPrimitive && (type.IsPrimitive || type == typeof(string)))
+        {
+            if (jsonPrimitive.children is null)
+                return null;
+            if (type == typeof(bool))
+                return bool.Parse((string)jsonPrimitive.children);
+            if (type == typeof(int))
+                return int.Parse((string)jsonPrimitive.children);
+            if (type == typeof(string))
+                return (string)jsonPrimitive.children;
+        }
+
+        if (json is JsonObject jsonObject && !(type.IsPrimitive
+                                          || type.IsArray))
+        {
+            var v = Activator.CreateInstance(type);
+            foreach (var field in type.GetProperties())
+            {
+                var f = field.Name;
+                if (!(jsonObject.children.TryGetValue(f, out var child)))
+                    continue;
+                if (field.SetMethod is null)
+                    continue;
+                field.SetValue(v, Deserialize(child, field.PropertyType));
+            }
+
+            return v;
+        }
+
+        if (json is JsonNull jsonNull)
+            return null;
+        throw new Exception($"Cannot deserialize object of type {type}");
     }
 
     private static string StringSerializer(string str)
@@ -189,6 +246,11 @@ public class JsonPrimitiveType : JsonNode
     public object? children = null;
 }
 
+public class JsonNull : JsonNode
+{
+    
+}
+
 internal class Point
 {
     public int X { get; set; }
@@ -210,9 +272,14 @@ internal class Point
         Array = new Student[4] { new Student(), new Student(), new Student(), new Student() };
     }
 
-    internal class Student
+    public Point()
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
+        
     }
+    
+}
+internal class Student
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
 }
